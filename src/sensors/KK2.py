@@ -11,6 +11,10 @@ from Adafruit_I2C import Adafruit_I2C
 class KK2 :
   i2c = None
 
+  KK2_UAV_ROLL_ADJ      = 10
+  KK2_UAV_PITCH_ADJ     = 11
+  KK2_UAV_THROTTLE_ADJ  = 12
+
   # KK2 Registers
   __KK2_CMD           = 0x00  
   __KK2_TEST          = 0x06

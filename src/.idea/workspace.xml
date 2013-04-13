@@ -23,7 +23,7 @@
       <file leaf-file-name="srf02.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sensors/srf02.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="0" selection-end="69" vertical-scroll-proportion="0.0">
+            <state line="66" column="22" selection-start="2036" selection-end="2036" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -38,10 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="system_model.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="system_model.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sensors/system_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1811" selection-end="1811" vertical-scroll-proportion="0.0">
+            <state line="81" column="0" selection-start="2669" selection-end="2669" vertical-scroll-proportion="0.9337232">
               <folding>
                 <element signature="e#19#30#0" expanded="true" />
               </folding>
@@ -52,7 +52,7 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sensors/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="2" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+            <state line="25" column="0" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -94,10 +94,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KK2.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="KK2.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sensors/KK2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="0" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.47204968">
+            <state line="15" column="22" selection-start="337" selection-end="357" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,9 +129,9 @@
         <option value="$PROJECT_DIR$/sensors/ema.py" />
         <option value="$PROJECT_DIR$/sensors/kk2_test.py" />
         <option value="$PROJECT_DIR$/sensors/Adafruit_BMP085.py" />
-        <option value="$PROJECT_DIR$/sensors/system_model.py" />
         <option value="$PROJECT_DIR$/sensors/main.py" />
         <option value="$PROJECT_DIR$/sensors/KK2.py" />
+        <option value="$PROJECT_DIR$/sensors/system_model.py" />
       </list>
     </option>
   </component>
@@ -232,7 +232,9 @@
       <option name="PARAMETERS" value="" />
       <option name="MULTIPROCESS" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -312,14 +314,14 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19136523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19136523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22831424" sideWeight="0.80863476" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22831424" sideWeight="0.67094517" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24550128" sideWeight="0.997545" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32905483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -424,13 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sensors/srf02.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="0" selection-end="69" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sensors/Adafruit_BMP085_example.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="1" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0">
@@ -459,13 +454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sensors/Adafruit_BMP085.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1579" selection-end="1579" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sensors/Adafruit_I2C.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="52" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
@@ -473,26 +461,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sensors/Adafruit_BMP085.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="1579" selection-end="1579" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sensors/KK2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="22" selection-start="337" selection-end="357" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sensors/srf02.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="22" selection-start="2036" selection-end="2036" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sensors/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+        <state line="25" column="0" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sensors/system_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1811" selection-end="1811" vertical-scroll-proportion="0.0">
+        <state line="81" column="0" selection-start="2669" selection-end="2669" vertical-scroll-proportion="0.9337232">
           <folding>
             <element signature="e#19#30#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sensors/KK2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.47204968">
-          <folding />
         </state>
       </provider>
     </entry>

@@ -17,7 +17,13 @@ def serviceTimer():
 # Prototype system model
 # ===========================================================================
 
+print "initializing system model"
 systemModel = SystemModel()
+print "system model initialized, ground level calibrated to ",systemModel.groundLevel
+desiredAltitude = 2
+print "setting desired (rel.) altitude to ",desiredAltitude
+systemModel.setDesiredAltitude( desiredAltitude )
+
 timer = Timer(0.1, serviceTimer)
 timer.start()
 
