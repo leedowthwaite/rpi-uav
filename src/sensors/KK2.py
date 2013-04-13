@@ -17,7 +17,7 @@ class KK2 :
 
   # Constructor
   def __init__(self, address=0x08, debug=False):
-    self.i2c = Adafruit_I2C(address,debug=True,byteSwap=False)
+    self.i2c = Adafruit_I2C(address,debug=debug,byteSwap=False)
 
     self.address = address
     self.debug = debug
@@ -29,6 +29,14 @@ class KK2 :
     if (self.debug):
       print "DBG: raw result: 0x%04X (%d)" % (raw & 0xFFFF, raw)
     return raw
+
+  def readStatus(self):
+    val = self.i2c.readU8(0xff)
+    return val
+
+  def readUavMode(self):
+    status = self.readStatus()
+    return (status != 0)
 
   def readReg16(self, reg):
     val = self.i2c.readS16(reg)
@@ -54,11 +62,14 @@ class KK2 :
 
 
   def readSticks(self,base,nsticks):
-    list = self.i2c.readList(base,nsticks*3)
-    res = []
-    for i in range(nsticks):
-      res.append (self.listTo16b8(list[i*3],list[i*3+1],list[i*3+2]))
-    return res
+    lst = self.i2c.readList(base,nsticks*3)
+    print "list: ",lst
+    if (isinstance(lst, list)):
+      res = []
+      for i in range(nsticks):
+        res.append (self.listTo16b8(lst[i*3],lst[i*3+1],lst[i*3+2]))
+      return res
+    else:
+      raise (IOError, "Error reading sticks")
 
-    
 

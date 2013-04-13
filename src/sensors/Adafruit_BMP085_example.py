@@ -11,10 +11,10 @@ from Adafruit_BMP085 import BMP085
 #bmp = BMP085(0x77)
 
 # To specify a different operating mode, uncomment one of the following:
-# bmp = BMP085(0x77, 0)  # ULTRALOWPOWER Mode
-# bmp = BMP085(0x77, 1)  # STANDARD Mode
-bmp = BMP085(0x77, 2)  # HIRES Mode
-# bmp = BMP085(0x77, 3)  # ULTRAHIRES Mode
+# bmp = BMP085(0x77, BMP085.BMP085_ULTRALOWPOWER)  # ULTRALOWPOWER Mode
+# bmp = BMP085(0x77, BMP085.BMP085_STANDARD)  # STANDARD Mode
+ bmp = BMP085(0x77, BMP085.BMP085_HIGHRES)  # HIRES Mode
+# bmp = BMP085(0x77, BMP085.BMP085_ULTRAHIGHRES)  # ULTRAHIRES Mode
 
 temp = bmp.readTemperature()
 pressure = bmp.readPressure()

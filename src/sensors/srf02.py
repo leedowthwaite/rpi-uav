@@ -49,7 +49,7 @@ class SRF02 :
     time.sleep(0.070)  # Wait more than 65ms
     range = self.i2c.readU16(self.__SRF02_R_RANGEH)
     if (self.debug):
-      print "DBG: Range(in): %d" % (range)
+      print "DBG: range: %d" % (range)
     return range
 
   def readRangeInches(self):
@@ -57,11 +57,16 @@ class SRF02 :
     return self.readRange(self.__SRF02_CMD_RRM_INCHES)
 
   def readRangeCentimeters(self):
-      "Reads the range reported by the sensor (in cm)"
-      return self.readRange(self.__SRF02_CMD_RRM_CENTIMETERS)
+    "Reads the range reported by the sensor (in cm)"
+    return self.readRange(self.__SRF02_CMD_RRM_CENTIMETERS)
 
   def readRangeMicroseconds(self):
-      "Reads the range reported by the sensor (in us)"
-      return self.readRange(self.__SRF02_CMD_RRM_MICROSECONDS)
+    "Reads the range reported by the sensor (in us)"
+    return self.readRange(self.__SRF02_CMD_RRM_MICROSECONDS)
 
-
+  def readMinRange(self):
+    "Reads min range of sensor"
+    min = self.i2c.readU16(self.__SRF02_R_AUTOTUNEMINH)
+    if (self.debug):
+        print "DBG: min: %d" % (min)
+    return min

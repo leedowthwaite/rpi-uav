@@ -16,17 +16,13 @@ kk2 = KK2(0x08, debug=True)
 adj = 1234.56789
 
 while True:
-#  unscThrottle = kk2.readReg16b8(2)
-#  rawRoll = kk2.readReg16b8(6)
-#  rawPitch = kk2.readReg16b8(7)
-#  rawThrottle = kk2.readReg16b8(8)
-#  rawYaw = kk2.readReg16b8(9)
-#  rawAux = kk2.readReg16b8(10)
+  uav = kk2.readUavMode()
+  time.sleep(0.1)
+
 
 #  roll,pitch,throttle,yaw,aux = kk2.readSticks(6,5)
   roll,pitch,throttle,yaw = kk2.readSticks(0,4)
-  aux = kk2.readReg16b8(9)
-  print "sticks: roll %d pitch %d throttle %d yaw %d aux %d" % (roll,pitch,throttle,yaw,aux)
+  print "sticks: roll %d pitch %d throttle %d yaw %d uav %d" % (roll,pitch,throttle,yaw,uav)
 
 #  print "raw roll %d pitch %d throttle %d yaw %d aux %d unsc. throttle %d" % (rawRoll,rawPitch,rawThrottle,rawYaw,rawAux,unscThrottle)
 
