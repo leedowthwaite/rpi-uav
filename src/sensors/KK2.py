@@ -67,7 +67,7 @@ class KK2 :
 
   def readSticks(self,base,nsticks):
     lst = self.i2c.readList(base,nsticks*3)
-    print "list: ",lst
+#    print "list: ",lst
     if (isinstance(lst, list)):
       res = []
       for i in range(nsticks):

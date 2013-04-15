@@ -27,8 +27,9 @@ class SystemModel:
     self.kk2 = KK2(0x08, debug=False)
     self.groundLevel = 0
     self.calibrateGroundLevel()
-    self.desiredAltitude = self.groundLevel
+    self.desiredAltitude = 0
     self.rangeMin = self.srf02.readMinRange() / 100.0
+    self.groundRangeValid = False
     print "min. range ",self.rangeMin
 
     self.throttleAdj = 0
@@ -41,10 +42,11 @@ class SystemModel:
   def calibrateGroundLevel(self):
     minRange = self.srf02.readMinRange()
     for i in range(32):
-      self.readGroundRangefinder()
-      self.readAbsAltitude()
+#      self.readGroundRangefinder()
+      self.groundLevel = self.readAbsAltitude()
+      time.sleep(0.1)
 #    self.readGroundRangefinder()
-    self.groundLevel = self.readAbsAltitude()
+#    self.groundLevel = self.readAbsAltitude()
 
   def readGroundRangefinder(self):
     range = self.srf02.readRangeCentimeters() / 100.0
@@ -58,7 +60,11 @@ class SystemModel:
 #    print "Temperature: %.2f C" % temp
 #    print "Pressure:    %.2f hPa" % (pressure / 100.0)
 #    print "Altitude:    %.2f" % altitude
-    return self.altitudeEMA.filter(altitude)
+    if ((altitude > self.altitudeEMA.currentValue()+250) or (altitude < self.altitudeEMA.currentValue()-250)):
+      print "WARNING: ignoring outlier altitude value: %0.2f" % altitude
+      return self.altitudeEMA.currentValue()
+    else:
+      return self.altitudeEMA.filter(altitude)
 
   # returns filtered altitude relative to calibrated ground level
   def readAltitude(self):
@@ -69,7 +75,7 @@ class SystemModel:
   def smartAltitude(self):
     relAltitude = self.altitudeEMA.currentValue() - self.groundLevel
     groundRange = self.rangeEMA.currentValue()
-    if (relAltitude > 0.25 and groundRange > self.rangeMin*2.0):
+    if (self.groundRangeValid):
       return (relAltitude + groundRange) / 2.0
     else:
       return relAltitude
@@ -88,33 +94,47 @@ class SystemModel:
     self.readAbsAltitude()
 
     groundRange = self.rangeEMA.currentValue()
-    print "groundRange: ", groundRange
+#    print "groundRange: %0.2f" % groundRange
+    time.sleep(0.01)
 
     altitude = self.readAltitude()
-    print "rel. altitude: ",altitude
+#    print "rel. altitude: %0.2f" % altitude
+    time.sleep(0.01)
+    if (altitude > 0.5 and altitude < 3.0 and groundRange > self.rangeMin*2.0):
+      self.groundRangeValid = True
+
+    if (not self.groundRangeValid):
+      groundRange = -1
 
     smartAltitude = self.smartAltitude()
-    print "smartAltitude: ",smartAltitude
+#    print "smartAltitude: ",smartAltitude
+    time.sleep(0.01)
 
     if (self.isActive()):
 
-      adjAltitude = self.desiredAltitude - altitude
-      print "adjAltitude: ",adjAltitude
-      if (adjAltitude > 0.05):
-        if (self.throttleAdj < 200):
-          self.throttleAdj = self.throttleAdj + 1
-      elif (adjAltitude < -0.05):
-        if (self.throttleAdj > -200):
-          self.throttleAdj = self.throttleAdj - 1
-      print "throttleAdj ",self.throttleAdj
+      # set desired altitude to current (alt. hold) if not already set
+      if (self.desiredAltitude <= 0):
+        self.desiredAltitude = smartAltitude
+        print "alt hold mode: desiredAltitude set to %f" % (self.desiredAltitude)
 
+      adjAltitude = self.desiredAltitude - smartAltitude
+      if (abs(adjAltitude) > 0.01):
+#        if (abs(self.throttleAdj) < 500):
+        self.throttleAdj = self.throttleAdj + adjAltitude*10.0
+
+      roll = pitch = throttle = yaw = 0
       try:
         roll,pitch,throttle,yaw = self.kk2.readSticks(0,4)
-        print "sticks: roll %d pitch %d throttle %d yaw %d" % (roll,pitch,throttle,yaw)
+#        print "sticks: roll %d pitch %d throttle %d yaw %d" % (roll,pitch,throttle,yaw)
       except IOError, e:
         print "Caught exception: ",e
+      time.sleep(0.01)
 
       self.kk2.writeReg16b8(KK2.KK2_UAV_THROTTLE_ADJ,self.throttleAdj)
       self.log("groundRange %f rel.alt %f smartAltitude %f adjAltitude %f throttleAdj %f" % (groundRange, altitude, smartAltitude, adjAltitude, self.throttleAdj))
+      print "smartAltitude %0.2f groundRange %0.2f adjAltitude %0.2f throttle %d throttleAdj %0.2f" % (smartAltitude, groundRange, adjAltitude, throttle, self.throttleAdj)
 
+    else:
+      self.throttleAdj = 0
+      self.groundRangeValid = False
 
